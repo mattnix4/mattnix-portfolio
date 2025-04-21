@@ -4,19 +4,22 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+// Add import for Skills3D component
+import Skills3D from "@/components/skills-3d"
 
 export default function AboutPage() {
+  // Inside the component, update the skills array to include colors
   const skills = [
-    { name: "JavaScript", level: 90 },
-    { name: "React", level: 85 },
-    { name: "Angular", level: 80 },
-    { name: "Node.js", level: 85 },
-    { name: "PHP", level: 75 },
-    { name: "TypeScript", level: 80 },
-    { name: "Python", level: 70 },
-    { name: "HTML/CSS", level: 90 },
-    { name: "Git", level: 85 },
-    { name: "DevOps", level: 75 },
+    { name: "JavaScript", level: 90, color: "#f7df1e" },
+    { name: "React", level: 85, color: "#61dafb" },
+    { name: "Angular", level: 80, color: "#dd0031" },
+    { name: "Node.js", level: 85, color: "#8cc84b" },
+    { name: "PHP", level: 75, color: "#777bb4" },
+    { name: "TypeScript", level: 80, color: "#3178c6" },
+    { name: "Python", level: 70, color: "#3776ab" },
+    { name: "HTML/CSS", level: 90, color: "#e34c26" },
+    { name: "Git", level: 85, color: "#f05032" },
+    { name: "DevOps", level: 75, color: "#ff6c37" },
   ]
 
   return (
@@ -119,6 +122,12 @@ export default function AboutPage() {
                         <Progress value={skill.level} className="h-2" />
                       </div>
                     ))}
+                  </div>
+
+                  {/* Add the 3D skills visualization here */}
+                  <div className="mt-8">
+                    <h3 className="text-lg font-semibold mb-4">Skills Visualization</h3>
+                    <Skills3D skills={skills} />
                   </div>
                 </CardContent>
               </Card>

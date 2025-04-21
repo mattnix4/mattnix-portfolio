@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section with 3D Animation */}
-      <section className="relative h-[80vh] w-full overflow-hidden bg-gradient-to-b from-background to-background/80">
+      <section className="relative h-[90vh] w-full overflow-hidden bg-gradient-to-b from-background to-background/80">
         <HeroScene />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container px-4 md:px-6 space-y-8 text-center z-10">
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nirina Randrianarisoa</h1>
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nirina Ran</h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                 Full-Stack Developer specialized in web applications and DevOps solutions
               </p>
@@ -57,11 +57,14 @@ export default function Home() {
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </Link>
-              <Link href="https://github.com/Nirina" className="text-gray-500 hover:text-primary">
+              <Link href="https://github.com/mattnix4/" className="text-gray-500 hover:text-primary">
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              <Link href="https://linkedin.com/in/Nirina" className="text-gray-500 hover:text-primary">
+              <Link
+                href="https://mg.linkedin.com/in/nantenaina-randrianarisoa"
+                className="text-gray-500 hover:text-primary"
+              >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
@@ -77,7 +80,7 @@ export default function Home() {
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Professional Experience</h2>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                My journey as a developer and technical team leader
+                Delivering high-quality solutions across web development and data extraction
               </p>
             </div>
           </div>
@@ -88,9 +91,11 @@ export default function Home() {
                   <h3 className="text-xl font-bold">Data Extraction Expert</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">SmartOne.ai Madagascar</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">07/2024 - Present</p>
-                  <p className="text-sm">
-                    Development and configuration of web scraping tools using Javascript for web data extraction.
-                  </p>
+                  <ul className="text-sm list-disc pl-4 space-y-1">
+                    <li>Developed advanced web scraping tools using JavaScript</li>
+                    <li>Automated data extraction workflows for enterprise clients</li>
+                    <li>Implemented data cleaning and transformation pipelines</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
@@ -100,11 +105,12 @@ export default function Home() {
                   <h3 className="text-xl font-bold">Full-Stack Developer | Technical Team Lead</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Capdata Software, Antananarivo</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">03/2022 - 07/2024</p>
-                  <p className="text-sm">
-                    Design and development of modules for HR and management applications using Angular, React, and
-                    Node.js. Integration of DevOps solutions for CI/CD and process automation. Technical team leadership
-                    and development team integration.
-                  </p>
+                  <ul className="text-sm list-disc pl-4 space-y-1">
+                    <li>Led development of HR and management applications using React and Node.js</li>
+                    <li>Implemented CI/CD pipelines and DevOps best practices</li>
+                    <li>Managed a team of 5 developers, improving productivity by 30%</li>
+                    <li>Created custom WordPress plugins for application interoperability</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
@@ -114,10 +120,11 @@ export default function Home() {
                   <h3 className="text-xl font-bold">Full-Stack Developer</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Capital Software</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">09/2021 - 12/2021</p>
-                  <p className="text-sm">
-                    Development of a web application for flight seat reservation using Vue.JS and Symfony. Git workflow
-                    implementation. Development of Crawling and Scraping applications for web data extraction.
-                  </p>
+                  <ul className="text-sm list-disc pl-4 space-y-1">
+                    <li>Built flight reservation system using Vue.JS and Symfony</li>
+                    <li>Migrated legacy codebase to Git version control</li>
+                    <li>Developed web scraping solutions for data-driven applications</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
