@@ -5,22 +5,57 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { Environment, OrbitControls, Text, Float } from "@react-three/drei"
 import { useIsMobile } from "@/hooks/use-mobile"
 
-function Model({ position = [0, 0, 0], scale = 1 }) {
+function Scene() {
+  const isMobile = useIsMobile()
+
+  // Scale based on device
+  const scale = isMobile ? 0.8 : 1.2
+
+  return (
+    <>
+      <ambientLight intensity={0.4} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.8} castShadow />
+      <pointLight position={[-10, -10, -10]} intensity={0.3} />
+
+      <Model scale={scale} />
+      <TechWords />
+
+      <Environment preset="city" />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        autoRotate
+        autoRotateSpeed={0.3}
+        minPolarAngle={Math.PI / 2.5}
+        maxPolarAngle={Math.PI / 1.8}
+      />
+    </>
+  )
+}
+
+function Model({ scale }) {
   const ref = useRef()
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.y = state.clock.getElapsedTime() * 0.2
-      ref.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.1
+      ref.current.rotation.y = state.clock.getElapsedTime() * 0.15
+      ref.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.2) * 0.08
     }
   })
 
   return (
-    <group ref={ref} position={position} scale={scale}>
+    <group ref={ref} scale={scale}>
       {/* Main sphere */}
       <mesh>
         <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial color="#4f46e5" metalness={0.7} roughness={0.1} envMapIntensity={1} />
+        <meshStandardMaterial
+          color="#4f46e5"
+          metalness={0.7}
+          roughness={0.1}
+          envMapIntensity={0.8}
+          transparent
+          opacity={0.9}
+        />
       </mesh>
 
       {/* Orbiting elements */}
@@ -71,9 +106,10 @@ function TechWords() {
             position={tech.position}
             color={tech.color}
             fontSize={0.5}
-            font="/fonts/Inter_Regular.json"
             anchorX="center"
             anchorY="middle"
+            // Make text slightly transparent to blend with background
+            opacity={0.7}
           >
             {tech.name}
           </Text>
@@ -84,7 +120,6 @@ function TechWords() {
 }
 
 export default function HeroScene() {
-  const isMobile = useIsMobile()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -94,21 +129,8 @@ export default function HeroScene() {
   if (!mounted) return null
 
   return (
-    <Canvas className="absolute inset-0" camera={{ position: [0, 0, 8], fov: 50 }}>
-      <ambientLight intensity={0.5} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} />
-      <Model position={[0, 0, 0]} scale={isMobile ? 0.8 : 1.2} />
-      <TechWords />
-      <Environment preset="city" />
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        autoRotate
-        autoRotateSpeed={0.5}
-        minPolarAngle={Math.PI / 2.5}
-        maxPolarAngle={Math.PI / 1.8}
-      />
+    <Canvas className="w-full h-full" camera={{ position: [0, 0, 8], fov: 50 }}>
+      <Scene />
     </Canvas>
   )
 }

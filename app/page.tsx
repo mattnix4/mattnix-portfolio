@@ -9,66 +9,90 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section with 3D Animation */}
-      <section className="relative h-[90vh] w-full overflow-hidden bg-gradient-to-b from-background to-background/80">
-        <HeroScene />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container px-4 md:px-6 space-y-8 text-center z-10">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nirina Ran</h1>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Full-Stack Developer specialized in web applications and DevOps solutions
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Badge variant="outline" className="text-sm py-1">
-                  JavaScript
-                </Badge>
-                <Badge variant="outline" className="text-sm py-1">
-                  React
-                </Badge>
-                <Badge variant="outline" className="text-sm py-1">
-                  Angular
-                </Badge>
-                <Badge variant="outline" className="text-sm py-1">
-                  Node.js
-                </Badge>
-                <Badge variant="outline" className="text-sm py-1">
-                  PHP
-                </Badge>
-                <Badge variant="outline" className="text-sm py-1">
-                  TypeScript
-                </Badge>
-                <Badge variant="outline" className="text-sm py-1">
-                  Python
-                </Badge>
-              </div>
-            </div>
-            <div className="space-x-4">
-              <Button asChild>
-                <Link href="/about">
-                  About Me <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link href="/contact">Contact Me</Link>
-              </Button>
-            </div>
-            <div className="flex justify-center space-x-4">
-              <Link href="mailto:dorints.mg@gmail.com" className="text-gray-500 hover:text-primary">
-                <Mail className="h-6 w-6" />
-                <span className="sr-only">Email</span>
-              </Link>
-              <Link href="https://github.com/mattnix4/" className="text-gray-500 hover:text-primary">
-                <Github className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link
-                href="https://mg.linkedin.com/in/nantenaina-randrianarisoa"
-                className="text-gray-500 hover:text-primary"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            </div>
+      <section className="relative h-[90vh] w-full overflow-hidden">
+        {/* 3D Background */}
+        <div className="absolute inset-0 z-0">
+          <HeroScene />
+        </div>
+
+        {/* Content overlay with gradient background for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background/80 z-10">
+          <div className="container h-full px-4 md:px-6 mx-auto flex flex-col items-center justify-center">
+            {/* Main content card with semi-transparent background */}
+            <Card className="max-w-3xl w-full bg-background/80 backdrop-blur-sm border-none shadow-lg">
+              <CardContent className="p-6 md:p-10 space-y-8 text-center">
+                <div className="space-y-4">
+                  <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nirina Ran</h1>
+                  <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl dark:text-gray-300">
+                    Full-Stack Developer specialized in web applications and DevOps solutions
+                  </p>
+                </div>
+
+                {/* Skills badges in a scrollable container */}
+                <div className="flex justify-center">
+                  <div className="flex flex-wrap justify-center gap-2 max-w-lg">
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      JavaScript
+                    </Badge>
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      React
+                    </Badge>
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      Angular
+                    </Badge>
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      Node.js
+                    </Badge>
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      PHP
+                    </Badge>
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      TypeScript
+                    </Badge>
+                    <Badge variant="secondary" className="text-sm py-1 px-3">
+                      Python
+                    </Badge>
+                  </div>
+                </div>
+
+                {/* Action buttons */}
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button asChild size="lg">
+                    <Link href="/about">
+                      About Me <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild size="lg" className="bg-background/50 backdrop-blur-sm">
+                    <Link href="/contact">Contact Me</Link>
+                  </Button>
+                </div>
+
+                {/* Social links */}
+                <div className="flex justify-center gap-6">
+                  <Link
+                    href="mailto:dorints.mg@gmail.com"
+                    className="text-gray-700 hover:text-primary dark:text-gray-300"
+                  >
+                    <Mail className="h-6 w-6" />
+                    <span className="sr-only">Email</span>
+                  </Link>
+                  <Link
+                    href="https://github.com/mattnix4/"
+                    className="text-gray-700 hover:text-primary dark:text-gray-300"
+                  >
+                    <Github className="h-6 w-6" />
+                    <span className="sr-only">GitHub</span>
+                  </Link>
+                  <Link
+                    href="https://mg.linkedin.com/in/nantenaina-randrianarisoa"
+                    className="text-gray-700 hover:text-primary dark:text-gray-300"
+                  >
+                    <Linkedin className="h-6 w-6" />
+                    <span className="sr-only">LinkedIn</span>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
